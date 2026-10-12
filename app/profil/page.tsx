@@ -14,13 +14,15 @@ const missions = [
 ];
 
 const demographics = [
-  ["01", "Jumlah Dusun", "6", "Dusun", "1. Kasak\n2. Pulosari\n3. Tundungan\n4. Kanten\n5. Ngledok\n6. Dagen"],
-  ["02", "Rukun Warga (RW)", "10", "RW", "Tersebar aktif di seluruh dusun"],
-  ["03", "Rukun Tetangga (RT)", "58", "RT", "Unit koordinasi warga paling hulu"],
-  ["04", "Jumlah Penduduk Total", "10.470", "Jiwa", "Data mutasi terintegrasi semester II 2024"],
-  ["05", "Penduduk Laki-laki", "5.188", "Jiwa", "49,55% dari total populasi desa"],
-  ["06", "Penduduk Perempuan", "5.282", "Jiwa", "50,45% (+94 jiwa di atas jumlah laki-laki)"],
-  ["07", "Kepadatan Penduduk", "2.277", "jiwa/km\u00B2", "Persebaran hunian asri & fasilitas umum"],
+  ["01", "Jumlah Dusun", "6", "Dusun", "Celep Kidul, Celep Lor, Dagen, Jetak, Songgorunggi, Turisari"],
+  ["02", "Rukun Warga (RW)", "13", "RW", "Data administratif tahun 2024"],
+  ["03", "Rukun Tetangga (RT)", "39", "RT", "Data administratif tahun 2024"],
+  ["04", "Jumlah Penduduk Total", "5.810", "Jiwa", "Data kependudukan tahun 2024"],
+  ["05", "Penduduk Laki-laki", "2.914", "Jiwa", "50,15% dari total penduduk Desa Dagen"],
+  ["06", "Penduduk Perempuan", "2.896", "Jiwa", "49,85% dari total penduduk Desa Dagen"],
+  ["07", "Persentase Penduduk Kecamatan Jaten", "7,09%", "Persen", "Proporsi penduduk Dagen terhadap penduduk Kecamatan Jaten"],
+  ["08", "Kepadatan Penduduk", "2.049", "jiwa/km²", "Data tahun 2024"],
+  ["09", "Rasio Jenis Kelamin", "100,62", "", "Laki-laki per 100 perempuan"],
 ];
 
 const staff = [
@@ -47,36 +49,49 @@ export default function ProfilPage() {
 
     <section className="profileBlock orgBlock"><header className="profileSectionHeading"><h2 className="ribbonTitle">Struktur Organisasi</h2></header><div className="orgCanvas" role="region" aria-label="Diagram struktur organisasi Desa Dagen" tabIndex={0}><Image src="/strutur-organisasi.png" alt="Bagan struktur organisasi Desa Dagen" width={876} height={626} /><p className="orgScrollHint">Geser diagram ke samping untuk melihat seluruh struktur.</p></div></section>
 
-    <section id="demografi" className="demography"><div className="demographyInner"><header className="profileSectionHeading"><h2>Wilayah & Demografi Kependudukan</h2><p>Ringkasan wilayah administratif dan gambaran penduduk Desa Dagen.</p></header><h3>Distribusi Berdasarkan Jenis Kelamin</h3><div className="genderCards"><article><p>Penduduk Laki-Laki</p><strong>2.914 <small>Jiwa</small></strong><div><span>Persentase Penduduk</span><b>50,15%</b></div><i><em /></i></article><article><p>Penduduk Perempuan</p><strong>2.896 <small>Jiwa</small></strong><div><span>Persentase Penduduk</span><b>49,85%</b></div><i><em /></i></article></div><h3 className="matrixTitle">Matriks Indikator Kependudukan</h3><div className="tableWrap" role="region" aria-label="Matriks indikator kependudukan, geser ke samping untuk melihat semua kolom" tabIndex={0}><table><thead><tr><th>No</th><th>Indikator Administratif / Demografi</th><th>Nilai Parameter</th><th>Satuan</th><th>Keterangan</th></tr></thead><tbody>{demographics.map((row) => <tr className={row[0] === "04" ? "populationTotal" : undefined} key={row[0]}>{row.map((cell) => <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div></div></section>
+    <section id="demografi" className="demography"><div className="demographyInner"><header className="profileSectionHeading"><h2>Wilayah & Demografi Kependudukan</h2><p>Desa Dagen terbagi menjadi 6 dusun, 13 RW, dan 39 RT. Pada tahun 2024, jumlah penduduk tercatat 5.810 jiwa dengan kepadatan 2.049 jiwa/km².</p></header><h3>Distribusi Berdasarkan Jenis Kelamin</h3><div className="genderCards"><article><p>Penduduk Laki-Laki</p><strong>2.914 <small>Jiwa</small></strong><div><span>Persentase Penduduk</span><b>50,15%</b></div><i><em style={{ width: "50.15%" }} /></i></article><article><p>Penduduk Perempuan</p><strong>2.896 <small>Jiwa</small></strong><div><span>Persentase Penduduk</span><b>49,85%</b></div><i><em style={{ width: "49.85%" }} /></i></article></div><h3 className="matrixTitle">Matriks Indikator Kependudukan</h3><div className="tableWrap" role="region" aria-label="Matriks indikator kependudukan, geser ke samping untuk melihat semua kolom" tabIndex={0}><table><thead><tr><th>No</th><th>Indikator Administratif / Demografi</th><th>Nilai Parameter</th><th>Satuan</th><th>Keterangan</th></tr></thead><tbody>{demographics.map((row) => <tr className={row[0] === "04" ? "populationTotal" : undefined} key={row[0]}>{row.map((cell, index) => <td key={`${row[0]}-${index}`}>{cell}</td>)}</tr>)}</tbody></table></div></div></section>
 
     <section id="layanan" className="healthSection">
-      <div className="healthSectionHeading"><h2>LAYANAN PUBLIK &amp; KESEHATAN</h2><p>Informasi fasilitas dan program kesehatan bagi warga Desa Dagen.</p></div><div className="healthHeading"><h2>Kesehatan dan Kesejahteraan Masyarakat</h2></div>
+      <div className="healthSectionHeading"><h2>LAYANAN PUBLIK &amp; KESEHATAN</h2><p>Ringkasan fasilitas kesehatan, layanan masyarakat, dan data sosial Desa Dagen tahun 2024.</p></div><div className="healthHeading"><h2>Kesehatan dan Kesejahteraan Masyarakat</h2></div>
       <div className="healthInner">
         <div className="healthKpis">
-          <article><div className="healthKpiLabel"><span>FASILITAS PKD</span></div><div className="healthKpiValue"><b>1</b><small>Unit</small></div><p>Poliklinik Kesehatan Desa Dagen aktif beroperasi</p></article>
-          <article><div className="healthKpiLabel"><span>APOTEK DESA</span></div><div className="healthKpiValue"><b>2</b><small>Unit</small></div><p>Distribusi farmasi & obat-obatan berizin</p></article>
-          <article><div className="healthKpiLabel"><span>POSYANDU AKTIF</span></div><div className="healthKpiValue"><b>22</b><small>Pos</small></div><p>Tersebar di seluruh kebayanan dan RW</p></article>
-          <article><div className="healthKpiLabel"><span>KADER KESEHATAN</span></div><div className="healthKpiValue"><b>79</b><small>Orang</small></div><p>61 Posyandu + 18 Posbindu PTM</p></article>
-          <article><div className="healthKpiLabel"><span>CAKUPAN KB AKTIF</span></div><div className="healthKpiValue gold"><b>66,13%</b></div><p>1.113 dari 1.683 Pasangan Usia Subur</p></article>
+          <article><div className="healthKpiLabel"><span>FASILITAS KESEHATAN</span></div><div className="healthKpiValue"><b>6</b><small>Unit</small></div><p>1 klinik, 1 puskesmas pembantu, 1 PKD, dan 3 apotek</p></article>
+          <article><div className="healthKpiLabel"><span>POSYANDU &amp; POSBINDU</span></div><div className="healthKpiValue"><b>13</b><small>Pos</small></div><p>6 balita, 5 lansia, 1 remaja, dan 1 Posbindu PTM</p></article>
+          <article><div className="healthKpiLabel"><span>KADER KESEHATAN</span></div><div className="healthKpiValue"><b>58</b><small>Orang</small></div><p>52 kader Posyandu dan 6 kader Posbindu PTM</p></article>
+          <article><div className="healthKpiLabel"><span>PASANGAN USIA SUBUR</span></div><div className="healthKpiValue"><b>954</b><small>PUS</small></div><p>Data program keluarga berencana tahun 2024</p></article>
+          <article><div className="healthKpiLabel"><span>AKSEPTOR KB</span></div><div className="healthKpiValue"><b>561</b><small>Orang</small></div><p>Akseptor KB tercatat pada data tahun 2024</p></article>
         </div>
         <div className="healthCards">
           <article className="posyanduCard">
-            <header><div><h3>Layanan Posyandu & Skrining Komunitas</h3><p>22 Pos Terpadu & 79 Kader Terlatih</p></div><span className="healthTag">Total 22 Pos</span></header>
+            <header><div><h3>Fasilitas Kesehatan</h3><p>Sarana pelayanan kesehatan yang tercatat di wilayah Dagen pada tahun 2024.</p></div><span className="healthTag">Total 6 Unit</span></header>
             <div className="posyanduGrid">
-              <div><small>POSYANDU BALITA</small><strong>7 Pos</strong><p>Pemantauan gizi & imunisasi</p></div>
-              <div><small>POSYANDU LANSIA</small><strong>7 Pos</strong><p>Cek tensi, gula & senam lansia</p></div>
-              <div><small>POSYANDU REMAJA</small><strong>4 Pos</strong><p>Konseling gizi & reproduksi</p></div>
-              <div><small>POSBINDU PTM</small><strong>4 Pos</strong><p>Skrining penyakit tidak menular</p></div>
+              <div><small>KLINIK PRATAMA</small><strong>1 Unit</strong></div>
+              <div><small>PUSKESMAS PEMBANTU</small><strong>1 Unit</strong></div>
+              <div><small>POLIKLINIK KESEHATAN DESA / PKD</small><strong>1 Unit</strong></div>
+              <div><small>APOTEK</small><strong>3 Unit</strong></div>
             </div>
-            <div className="staffSummary"><strong>Distribusi Tenaga Kader Desa Dagen:</strong><span>61 Kader Posyandu</span><span>18 Kader Posbindu PTM</span></div>
+            <div className="staffSummary"><strong>Fasilitas sesuai data kesehatan Desa Dagen tahun 2024.</strong></div>
           </article>
           <article className="kbCard">
-            <header><div><h3>Program Keluarga Berencana</h3><p>Keluarga Berkualitas & Sejahtera</p></div><span className="healthTag goldTag">66,13% Capaian</span></header>
-            <div className="kbOverview"><div><small>PASANGAN USIA SUBUR (PUS)</small><strong>1.683</strong></div><div><small>AKSEPTOR KB AKTIF</small><strong>1.113</strong></div></div>
-            <div className="kbProgress"><span style={{ width: "66.13%" }} /></div>
-            <div className="kbProgressLabels"><span>0 Aseptor</span><strong>66,13% Pasangan Terdaftar</strong><span>Target 100%</span></div>
-            <div className="kbMethod"><strong>Metode Pelayanan Kontrasepsi:</strong><p>Pelayanan suntik, pil KB, IUD, implan, dan MOW difasilitasi melalui kemitraan bidan desa, PKD, serta rujukan Puskesmas Jaten I secara teratur tiap pekan.</p></div>
-            <small className="kbSource">Sumber: Data KB BKKBN & Register Kader Desa Dagen 2024</small>
+            <header><div><h3>Posyandu & Keluarga Berencana</h3><p>Layanan kesehatan masyarakat dan program keluarga berencana tahun 2024.</p></div><span className="healthTag goldTag">561 Akseptor KB</span></header>
+            <div className="posyanduGrid">
+              <div><small>POSYANDU BALITA</small><strong>6 Posyandu</strong></div>
+              <div><small>POSYANDU LANSIA</small><strong>5 Posyandu</strong></div>
+              <div><small>POSYANDU REMAJA</small><strong>1 Posyandu</strong></div>
+              <div><small>POSBINDU PTM</small><strong>1 Posbindu</strong></div>
+            </div>
+            <div className="staffSummary"><strong>Tenaga kader:</strong><span>52 kader Posyandu</span><span>6 kader Posbindu PTM</span></div>
+            <div className="kbOverview"><div><small>PASANGAN USIA SUBUR (PUS)</small><strong>954</strong></div><div><small>AKSEPTOR KB</small><strong>561</strong></div></div>
+            <small className="kbSource">Sumber: Data kesehatan dan KB Desa Dagen 2024</small>
+          </article>
+          <article className="kbCard">
+            <header><div><h3>Kondisi Sosial</h3><p>Data penyandang disabilitas di Dagen pada tahun 2024.</p></div></header>
+            <div className="posyanduGrid">
+              <div><small>TUNA DAKSA</small><strong>2 Orang</strong></div>
+              <div><small>CACAT GANDA</small><strong>3 Orang</strong></div>
+            </div>
+            <p>Jumlah tuna netra, tuna rungu, tuna grahita, dan tuna laras tidak tercatat pada tabel sumber.</p>
+            <small className="kbSource">Sumber: Data sosial Desa Dagen 2024</small>
           </article>
         </div>
       </div>
