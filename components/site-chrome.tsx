@@ -8,7 +8,7 @@ export function SiteHeader({ page }: SiteHeaderProps) {
     <header className="topbar">
       <Link className="brand" href="/" aria-label="Beranda Desa Dagen">
         <Image src="/figma/crest.png" alt="Lambang Kabupaten Karanganyar" width={48} height={58} priority />
-        <span>Pemerintah Kota Karanganyar<br />Kecamatan Jaten<br />Desa Dagen</span>
+        <span>Pemerintah Desa<br />Kecamatan Jaten<br />Desa Dagen</span>
       </Link>
       <nav className="nav" aria-label="Navigasi utama">
         <Link className={page === "home" ? "active" : undefined} href={page === "home" ? "#beranda" : "/"}>Beranda</Link>
@@ -26,19 +26,18 @@ export function SiteFooter() {
         <div className="footerBrand">
           <Link className="footerIdentity" href="/">
             <Image src="/figma/crest.png" alt="Lambang Kabupaten Karanganyar" width={40} height={48} />
-            <div className="footerIdentityInfo"><strong>Pemerintah Kota Karanganyar</strong><span>Kecamatan Jaten</span><span>Desa Dagen</span></div>
+            <div className="footerIdentityInfo"><strong>Pemerintah Desa</strong><span>Kecamatan Jaten</span><span>Desa Dagen</span></div>
           </Link>
           <p>Portal informasi resmi Pemerintah Desa Dagen untuk pelayanan dan keterbukaan informasi warga.</p>
           <div className="contactDetail"><span>jln. Mojo No.1 Celep lor, Dagen, Jaten, Karanganyar, Jawa Tengah</span><span>Senin - Jumat | 08.00 - 15.00 WIB</span><span>(0271) 826783</span></div>
         </div>
         <div><h4>Navigasi Utama</h4><Link href="/">Beranda</Link><Link href="/profil">Profil Wilayah</Link></div>
-        <div id="kontak"><h4>Hubungi Kami</h4><a href="mailto:desa-dagen@karanganyarkab.go.id">desa-dagen@karanganyarkab.go.id</a><a href="tel:+62271826783">(0271) 826783</a><a href="#kontak">Pos Pengaduan Warga</a></div>
+        <div id="kontak"><h4>Hubungi Kami</h4><a href="mailto:desadagen@gmail.com">desadagen@gmail.com</a><a href="tel:+62271826783">(0271) 826783</a><a href="#kontak">Pos Pengaduan Warga</a></div>
       </div>
       <div className="footerBottom">
         <div><p>Terhubung Bersama Kami</p><div className="socialLinks">
-          <a href="https://youtube.com" aria-label="YouTube"><Image className="icon" src="/icon/youtube.svg" alt="" width={18} height={18} /></a>
-          <a href="https://instagram.com/desadagenofficial" aria-label="Instagram"><Image className="icon" src="/icon/instagram.svg" alt="" width={18} height={18} /></a>
-          <a href="https://x.com" aria-label="X"><Image className="icon" src="/icon/x.svg" alt="" width={18} height={18} /></a>
+          <a href="https://www.instagram.com/desadagenofficial/" target="_blank" rel="noreferrer" aria-label="Instagram Desa Dagen"><Image className="icon" src="/icon/instagram.svg" alt="" width={18} height={18} /></a>
+          <a href="https://www.facebook.com/dagen.dagen.927" target="_blank" rel="noreferrer" aria-label="Facebook Desa Dagen"><Image className="icon" src="/icon/facebook.svg" alt="" width={18} height={18} /></a>
         </div></div>
         <small>&copy; 2025 Pemerintah Desa Dagen, Kecamatan Jaten. Kabupaten Karanganyar. Hak Cipta Dilindungi Undang-Undang.</small>
       </div>
